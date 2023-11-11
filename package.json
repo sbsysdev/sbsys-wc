@@ -1,6 +1,6 @@
 {
     "name": "@sbsys/sbsys-wc",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "type": "module",
     "description": "SBSYS WEB Components & Utilities",
     "files": [
@@ -10,7 +10,10 @@
     "module": "./dist/sbsys-wc.js",
     "exports": {
         ".": {
-            "import": "./dist/sbsys-wc.js",
+            "import": [
+                "./dist/sbsys-wc.js",
+                "./dist/index.d.ts"
+            ],
             "require": "./dist/sbsys-wc.umd.cjs"
         }
     },
@@ -57,5 +60,5 @@
     "peerDependencies": {
         "lit": "^3.0.2"
     },
-    "typings": "index.d.ts"
+    "typings": "./dist/index.d.ts"
 }

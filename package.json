@@ -1,6 +1,6 @@
 {
     "name": "@sbsys/sbsys-wc",
-    "version": "0.2.0",
+    "version": "0.2.1",
     "type": "module",
     "description": "SBSYS WEB Components & Utilities",
     "files": [

@@ -2,8 +2,6 @@ import { css } from 'lit';
 
 export const gridStyles = css`
     :host {
-        --sb-auto-sizing: auto-fill;
-
         --sb-gap: 1rem;
 
         --sb-item-width: 8rem;
@@ -19,6 +17,13 @@ export const gridStyles = css`
 
         display: grid;
         gap: var(--sb-gap);
+    }
+
+    :host([autosizing='fill']) {
+        --sb-auto-sizing: auto-fill;
+    }
+    :host([autosizing='fit']) {
+        --sb-auto-sizing: auto-fit;
     }
 
     :host([direction='row']) {

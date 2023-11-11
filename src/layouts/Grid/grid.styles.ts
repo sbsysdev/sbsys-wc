@@ -4,11 +4,9 @@ export const gridStyles = css`
     :host {
         --sb-auto-sizing: auto-fill;
 
-        --sb-gap: 0.5em;
-        --sb-row-gap: var(--sb-gap);
-        --sb-col-gap: var(--sb-gap);
+        --sb-gap: 1rem;
 
-        --sb-item-width: 4em;
+        --sb-item-width: 8rem;
         --sb-item-min-width: 100%;
         --sb-item-max-width: 1fr;
     }
@@ -20,7 +18,7 @@ export const gridStyles = css`
         );
 
         display: grid;
-        gap: var(--sb-row-gap) var(--sb-col-gap);
+        gap: var(--sb-gap);
     }
 
     :host([direction='row']) {

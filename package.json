@@ -1,0 +1,61 @@
+{
+    "name": "@sbsys/sbsys-wc",
+    "version": "0.1.0",
+    "type": "module",
+    "description": "SBSYS WEB Components & Utilities",
+    "files": [
+        "dist"
+    ],
+    "main": "./dist/sbsys-wc.umd.cjs",
+    "module": "./dist/sbsys-wc.js",
+    "exports": {
+        ".": {
+            "import": "./dist/sbsys-wc.js",
+            "require": "./dist/sbsys-wc.umd.cjs"
+        }
+    },
+    "scripts": {
+        "dev": "vite",
+        "build": "tsc && vite build",
+        "format": "prettier \"**/*.{cjs,html,js,json,md,ts}\" --write",
+        "lint": "eslint --fix \"**/*.{js,ts}\"",
+        "fix": "npm run format && npm run lint",
+        "preview": "vite preview"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/sbsysdev/sbsys-wc.git"
+    },
+    "keywords": [
+        "WEB",
+        "Components",
+        "TypeScript",
+        "Lit",
+        "HTML5",
+        "CSS3",
+        "JavaScript"
+    ],
+    "author": "Steven Bustillo",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/sbsysdev/sbsys-wc/issues"
+    },
+    "homepage": "https://github.com/sbsysdev/sbsys-wc#readme",
+    "devDependencies": {
+        "@types/node": "^20.9.0",
+        "@typescript-eslint/eslint-plugin": "^6.10.0",
+        "@typescript-eslint/parser": "^6.10.0",
+        "eslint": "^8.53.0",
+        "eslint-config-prettier": "^9.0.0",
+        "eslint-plugin-lit": "^1.10.1",
+        "lit": "^3.0.2",
+        "prettier": "^3.0.3",
+        "typescript": "^5.2.2",
+        "vite": "^4.5.0",
+        "vite-plugin-dts": "^3.6.3"
+    },
+    "peerDependencies": {
+        "lit": "^3.0.2"
+    },
+    "typings": "index.d.ts"
+}

@@ -2,22 +2,26 @@
 import { LitElement, html } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 // types
-import { Direction } from 'src/types';
+import { Direction, Size } from 'src/types';
 // styles
-import { scrollStyles } from './scroll.styles';
+import { panelStyles } from './panel.styles';
 
-@customElement('sb-scroll')
-export class SBScroll extends LitElement {
-    static styles = [scrollStyles];
+@customElement('sb-panel')
+export class SBPanel extends LitElement {
+    static styles = [panelStyles];
 
     @property({ reflect: true }) direction: Direction;
     @property({ type: Boolean, reflect: true }) grown: boolean;
+
+    @property({ reflect: true }) size: Size | '';
 
     constructor() {
         super();
 
         this.direction = 'top-bottom';
         this.grown = false;
+
+        this.size = '';
     }
 
     protected render() {

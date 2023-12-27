@@ -1,6 +1,6 @@
 import { resolve } from 'path';
 import { fileURLToPath } from 'url';
-import { defineConfig } from 'vite';
+import { defineConfig, splitVendorChunkPlugin } from 'vite';
 import dts from 'vite-plugin-dts';
 
 export default defineConfig({
@@ -12,6 +12,12 @@ export default defineConfig({
         },
         rollupOptions: {
             external: [/^lit.*/],
+            output: {
+                globals: {
+                    lit: 'lit',
+                    'lit/decorators.js': 'lit/decorators.js',
+                },
+            },
         },
     },
     resolve: {
@@ -19,5 +25,10 @@ export default defineConfig({
             '@': fileURLToPath(new URL('./src', import.meta.url)),
         },
     },
-    plugins: [dts()],
+    plugins: [
+        splitVendorChunkPlugin(),
+        dts({
+            insertTypesEntry: true,
+        }),
+    ],
 });

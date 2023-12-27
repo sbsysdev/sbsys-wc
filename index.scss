@@ -1,0 +1,40 @@
+@import 'public/scss';
+
+:root {
+    @include generate-theme($base);
+}
+
+* {
+    @include normalize();
+}
+*:focus {
+    outline: none;
+}
+
+body {
+    @include bg-color(light, 30);
+    @include flex;
+    @include font-color(dark, 70);
+    @include font-family(main);
+    height: 100dvh;
+    line-height: 1.25;
+
+    @include theme(dark) {
+        @include bg-color(dark, 70);
+        @include font-color(light, 30);
+    }
+}
+
+a,
+button {
+    cursor: pointer;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul,
+ol {
+    list-style: none;
+}

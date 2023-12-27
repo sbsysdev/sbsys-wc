@@ -1,35 +1,30 @@
+// lit
 import { css } from 'lit';
 
 export const scrollStyles = css`
     :host {
-        --sb-gap: 1rem;
-        --sb-grow: 1;
-    }
-
-    :host {
         display: flex;
-        gap: var(--sb-gap);
         overflow: hidden;
     }
 
-    :host([grow]) {
-        flex-grow: var(--sb-grow);
+    :host([grown]) {
+        flex-grow: var(--sb-grown, 1);
     }
 
-    :host([to='top']) {
-        flex-direction: column-reverse;
-        overflow-y: auto;
-    }
-    :host([to='bottom']) {
+    :host([direction='top-bottom']) {
         flex-direction: column;
         overflow-y: auto;
     }
-    :host([to='left']) {
-        flex-direction: row-reverse;
+    :host([direction='bottom-top']) {
+        flex-direction: column-reverse;
+        overflow-y: auto;
+    }
+    :host([direction='left-right']) {
+        flex-direction: row;
         overflow-x: auto;
     }
-    :host([to='right']) {
-        flex-direction: row;
+    :host([direction='right-left']) {
+        flex-direction: row-reverse;
         overflow-x: auto;
     }
 `;

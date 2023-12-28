@@ -8,7 +8,7 @@ export const scrollStyles = css`
     }
 
     :host([grown]) {
-        flex-grow: var(--sb-grown, 1);
+        flex-grow: var(--sb-scroll-grown, 1);
     }
 
     :host([direction='top-bottom']) {

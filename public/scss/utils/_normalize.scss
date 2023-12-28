@@ -1,9 +1,11 @@
 @use 'spacing';
 
+$wc: (sb-panel, sb-scroll);
+
 @mixin normalize {
-    &,
-    &::before,
-    &::after {
+    &:not(#{$wc}),
+    &:not(#{$wc})::before,
+    &:not(#{$wc})::after {
         @include spacing.border-width(all 0);
         @include spacing.margin(all 0);
         @include spacing.padding(all 0);
@@ -15,5 +17,8 @@
         font-family: inherit;
         font-size: inherit;
         font-weight: inherit;
+    }
+    &:not(#{$wc}):focus {
+        outline: none;
     }
 }

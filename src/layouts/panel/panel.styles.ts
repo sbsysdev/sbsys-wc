@@ -1,44 +1,43 @@
 // lit
-import { css } from 'lit';
+import { css, unsafeCSS } from 'lit';
+// types
+import { colors, intensities } from '@/types';
 
-export const panelStyles = css`
-    :host {
-        display: flex;
-    }
+const colorPanelStyles = () => {
+    const styles = [];
 
-    :host([grown]) {
-        flex-grow: var(--sb-grown, 1);
-    }
-
-    :host([direction='top-bottom']) {
-        flex-direction: column;
-    }
-    :host([direction='bottom-top']) {
-        flex-direction: column-reverse;
-    }
-    :host([direction='left-right']) {
-        flex-direction: row;
-    }
-    :host([direction='right-left']) {
-        flex-direction: row-reverse;
+    for (const color of colors) {
+        for (const intensity of intensities) {
+            styles.push(
+                unsafeCSS(`
+                :host([color="${color}"][intensity="${intensity}"]) {
+                    --sb-panel-bg-color: var(--sb-color-${color}-${intensity});
+                    ${intensity > 40 && '--sb-panel-font-color: var(--sb-color-light-30);'}
+                }
+            `)
+            );
+        }
     }
 
-    :host([size='xs']) {
-        padding: var(--sb-xs-padding, 0.25rem);
-    }
-    :host([size='sm']) {
-        padding: var(--sb-sm-padding, 0.5rem);
-    }
-    :host([size='md']) {
-        padding: var(--sb-md-padding, 0.75rem);
-    }
-    :host([size='lg']) {
-        padding: var(--sb-lg-padding, 1rem);
-    }
-    :host([size='xl']) {
-        padding: var(--sb-xl-padding, 1.5rem);
-    }
-    :host([size='2xl']) {
-        padding: var(--sb-xl-padding, 2rem);
-    }
-`;
+    return styles;
+};
+
+export const panelStyles = [
+    // base styles
+    css`
+        :host {
+            background-color: rgb(var(--sb-panel-bg-color, transparent) / var(--sb-panel-bg-opacity, 1));
+            border-color: var(--sb-panel-border-color, currentColor);
+            border-radius: var(--sb-panel-border-radius, 0);
+            border-style: solid;
+            border-width: var(--sb-panel-border-width, 2px);
+            color: rgb(var(--sb-panel-font-color, currentColor) / var(--sb-panel-font-opacity, 1));
+            display: flex;
+        }
+        :host([grown]) {
+            flex-grow: var(--sb-panel-grown, 1);
+        }
+    `,
+    // color styles
+    ...colorPanelStyles(),
+];

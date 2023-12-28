@@ -2,7 +2,7 @@
 import { LitElement, html } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 // types
-import { Direction } from 'src/types';
+import { Direction } from '@/types';
 // styles
 import { scrollStyles } from './scroll.styles';
 
